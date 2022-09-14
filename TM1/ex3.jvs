@@ -1,0 +1,39 @@
+void main() {
+    if (random(0, 2) == 1) {
+        print("(");
+    } else {
+        print("@(");
+    }
+
+    if (random(0, 2) == 1) {
+        print("o");
+    } else {
+        if (random(0, 2) == 1) {
+            print("*");
+        } else {
+            print("-");
+        }
+    }
+
+    if (random(0, 2) == 1) {
+        print("_");
+    } else {
+        print(".");
+    }
+
+    if (random(0, 2) == 1) {
+        print("o");
+    } else {
+        if (random(0, 2) == 1) {
+            print("*");
+        } else {
+            print("-");
+        }
+    }
+
+    if (random(0, 2) == 1) {
+        print(")");
+    } else {
+        print(")@");
+    }
+}

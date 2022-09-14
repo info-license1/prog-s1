@@ -1,0 +1,12 @@
+void main() {
+    int age = readInt("Quel est votre age ?");
+    String prenom = readString("Quel est votre prénom ?");
+    String nom = readString("Quel est votre nom ?");
+
+    print(prenom + " " + nom + ", " + age);
+    if (age == 1) {
+        print(" an.");
+    } else {
+        print(" ans.");
+    }
+}

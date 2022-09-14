@@ -1,0 +1,52 @@
+void main() {
+    int limite = readInt("En combien de points voulez-vous arrêter ? (max 50)");
+    if (limite < 1) {
+        print("Vous devez au moins jouer un tour.");
+    } else if (limite > 50) {
+        print("Vous ne pouvez pas jouer pour plus de 50 points.");
+    }
+    int scoreA = 0;
+    int scoreB = 0;
+
+    while (scoreA < limite || scoreB < limite) {
+        print("Choix du joueur a : ");
+        int a = readInt("1 - Pierre | 2 - Papier | 3 - Ciseaux | 4 - Puits");
+        println(a);
+
+        print("Choix du joueur b : ");
+        int b = readInt("1 - Pierre | 2 - Papier | 3 - Ciseaux | 4 - Puits");
+        println(b);
+
+        if (a < 1 || a > 4 || b < 1 || b > 4) {
+            println("Coup invalide, le chiffre doit être compris entre 1 et 4.");
+            println("");
+        } else if (a == b) {
+            println("Il y a égalité !");
+            println("");
+        } else if (a == 1 && b == 3
+                || a == 2 && b == 1
+                || a == 2 && b == 4
+                || a == 3 && b == 2
+                || a == 4 && b == 1
+                || a == 4 && b == 3) {
+            println("Le joueur a remporte ce match.");
+            println("");
+            scoreA = scoreA + 1;
+            println("Score de a : " + scoreA + " | Score de b : " + scoreB);
+            println("");
+        } else {
+            println("Le joueur b remporte ce match.");
+            println("");
+            scoreB = scoreB + 1;
+            println("Score de a : " + scoreA + " | Score de b : " + scoreB);
+            println("");
+        }
+    }
+
+    if (scoreA > scoreB) {
+        println("Le joueur a remporte la partie !");
+    } else {
+        println("Le joueur b remporte la partie !");
+    }
+    print("Score de a : " + scoreA + " | Score de b : " + scoreB);
+}

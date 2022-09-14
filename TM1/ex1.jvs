@@ -1,0 +1,49 @@
+void main() {
+    int balleX = 0;
+    int balleY = 0;
+    int curseurX = 0;
+    int curseurY = 0;
+    int vitesseX = 1;
+    int vitesseY = 1;
+    int largeur = 30;
+    int hauteur = 10;
+    double temps;
+
+    // temps = now();
+    clear();
+    while (true) {
+        if (balleX == curseurX && balleY == curseurY) {
+            print("X");
+        } else {
+            print(".");
+        }
+
+        curseurX = curseurX + 1;
+        if (curseurX == largeur) {
+            curseurX = 0;
+            curseurY = curseurY + 1;
+            println();
+            if (curseurY == hauteur) {
+                curseurY = 0;
+                balleX = balleX + vitesseX;
+                if (balleX == -1) {
+                    balleX = 1;
+                    vitesseX = 1;
+                } else if (balleX == largeur) {
+                    balleX = largeur - 2;
+                    vitesseX = -1;
+                }
+                balleY = balleY + vitesseY;
+                if (balleY == -1) {
+                    balleY = 1;
+                    vitesseY = 1;
+                } else if (balleY == hauteur) {
+                    balleY = hauteur - 2;
+                    vitesseY = -1;
+                }
+                sleep(15); // Pour modifier la vitesse de l'animation
+                clear();
+            }
+        }
+    }
+}
