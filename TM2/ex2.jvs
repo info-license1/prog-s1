@@ -1,0 +1,26 @@
+void main() {
+    int nombre = readInteger("Veuillez Choisir un nombre");
+    for (int i = 0; i <= nombre; i++)
+        println(i);
+    }
+}
+
+void main() {
+    for (int i = 9999; i > 0; i--) {
+        println(i);
+    }
+}
+
+void main() {
+    for (int i = 2; i <= 8888; i++) {
+        println(i);
+        i++;
+    }
+}
+
+void main() {
+    for (int i = 7777; i >= 33; i--) {
+        println(i);
+        i--;
+    }
+}
