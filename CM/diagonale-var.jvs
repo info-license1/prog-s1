@@ -1,0 +1,17 @@
+void main() {
+    int n = readInt("Quel coté du carré ?");
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < i; j++) {
+            print("*");
+        }
+
+        print("0");
+
+        for (int j = i + 1; j < n; j++) {
+            print("*");
+        }
+
+        println();
+    }
+}

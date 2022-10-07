@@ -1,0 +1,16 @@
+void main() {
+    int x = readInt("Donnez une valeur, 0 pour fin");
+    int max = 0;
+    // faire le max de l'accumulateur et de la nouvelle valeur
+    if (x > max) {
+        max = x;
+    } // sinon max reste inchangé
+    while (x > 0) {
+        x = readInt("Nouvelle valeur, 0 pour fin");
+        // faire le max de l'accumulateur et de la nouvelle valeur
+        if (x > max) {
+            max = x;
+        }
+    }
+    print("Le max vaut " + max);
+}

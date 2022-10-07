@@ -1,0 +1,9 @@
+void main() {
+    int x = readInt("Quel est le nombre de lignes ?");
+    for (int i = 0; i < x; i++) {
+        for (int j = 0; j < x; j++) {
+            print("*"); // affiche x étoiles sur la même ligne  
+        }
+        println();
+    }
+}

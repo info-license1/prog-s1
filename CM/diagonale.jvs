@@ -1,0 +1,17 @@
+void main() {
+    int x = readInt("Coté du carré ?");
+    for (int i = 0; i < x; i++) {
+        // affiche i étoiles *
+        for (int j = 0; j < i; j++) {
+            print("*");
+        }
+        // affiche 0
+        print("0");
+        // affiche (x-i-1) étoiles
+        // for (int j = i + 1; j < x; j++) {
+        for (int j = x; j > i + 1; j--) {
+            print("*");
+        }
+        println();
+    }
+}
