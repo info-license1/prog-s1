@@ -1,0 +1,9 @@
+void main() {
+    int x = readInt("Donnez une valeur, 0 pour fin");
+    int somme = x;
+    while (x > 0) {
+        x = readInt("Nouvelle valeur, 0 pour fin");
+        somme = somme + x;
+    }
+    print("La somme vaut " + somme);
+}

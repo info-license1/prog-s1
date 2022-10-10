@@ -1,0 +1,14 @@
+void main() {
+    int x = readInt("Nombre de lignes");
+    for (int i = 0; i < x; i++) {
+        // affiche x-i-1 de blancs
+        for (int j = 0; j < x - i - 1; j++) {
+            print(" ");
+        }
+        // affiche 2*i+1 de *
+        for (int j = 0; j < 2 * i + 1; j++) {
+            print("*");
+        }
+        println();
+    }
+}
