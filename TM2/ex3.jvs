@@ -1,5 +1,5 @@
 void main() {
-    int nombre = readInteger("Veuillez choisir un nombre pour afficher sa table");
+    int nombre = readInt("Veuillez choisir un nombre pour afficher sa table");
     for (int i = 0; i <= 15; i++) {
         if (i < 10) {
             println(" " + i + " x " + nombre + " = " + i * nombre);

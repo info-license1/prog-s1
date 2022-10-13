@@ -1,0 +1,17 @@
+void main() {
+    int k = readInt("Veuillez choisir k :");
+    int [] tab = new int[]{1, 1, 1, 0};
+    int y = 0;
+    for (int i = 0; i < 3; i++) {
+        println(tab[i]);
+        y++;
+    }
+
+    for (int i = 3; i <= k; i++) {
+        tab[y] = tab[y-3] + tab[y-2] + tab[y-1] + i;
+        println(tab[y]);
+        if (y == 3) {
+            y = 0;
+        }
+    }
+}

@@ -1,5 +1,5 @@
 void main() {
-    int nombre = readInteger("Veuillez Choisir un nombre");
+    int nombre = readInt("Veuillez Choisir un nombre");
     for (int i = 0; i <= nombre; i++)
         println(i);
     }
@@ -19,8 +19,7 @@ void main() {
 }
 
 void main() {
-    for (int i = 7777; i >= 33; i--) {
+    for (int i = 7777; i >= 33; i = i-2) {
         println(i);
-        i--;
     }
 }
