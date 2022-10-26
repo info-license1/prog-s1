@@ -1,0 +1,50 @@
+void main() {
+    int[] tab1 = new int[] {5, 6, 7, 8, 9, 10};
+    int[] tab2 = new int[] {0, 1, 2, 3, 4, 5};
+    int[] tab3 = new int[] {0, 1, 2, 3, 4, 5, 15, 14, 11, 54, 1, 54, 1, 125};
+
+    int[] test = remplissage(tab1, tab2, tab3);
+    for (int i : test) {
+        println(i);
+    }
+}
+
+void augmente2(int[] tab) {
+    for (int i = 0; i < tab.length; i++) {
+        tab[i] = tab[i] + 2;
+    }
+}
+
+void augmente(int[] tab, int n) {
+    for (int i = 0; i < tab.length; i++) {
+        tab[i] = tab[i] + n;
+    }
+}
+
+void echange(int[] tab, int i, int j) {
+    int temp = tab[i];
+    tab[i] = tab[j];
+    tab[j] = temp;
+}
+
+void rotation(int[] tab) {
+    int temp = tab[0];
+    for (int i = 0; i < tab.length - 1; i++) {
+        tab[i] = tab[i + 1];
+    }
+    tab[tab.length - 1] = temp;
+}
+
+int[] remplissage(int[] source1, int[] source2, int[] target) {
+    for (int i = 0; i < source1.length && i <= target.length; i++) {
+        target[i] = source1[i];
+    }
+    for (int i = 0; i < source2.length && i <= target.length; i++) {
+        target[i + source1.length] = source2[i];
+    }
+    int reste = target.length - (source1.length + source2.length);
+    for (int i = 0; i < reste; i++) {
+        target[i + source1.length + source2.length] = 0;
+    }
+    return target;
+}

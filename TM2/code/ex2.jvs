@@ -1,0 +1,31 @@
+void main() {
+    printNumbers();
+    numbersFrom9999To1();
+    evenNumbersTo8888();
+    oddNumbersFrom7777To8888();
+}
+
+void printNumbers() {
+    int nombre = readInt("Veuillez Choisir un nombre :");
+    for (int i = 0; i <= nombre; i++) {
+        println(i);
+    }
+}
+
+void numbersFrom9999To1() {
+    for (int i = 9999; i > 0; i--) {
+        println(i);
+    }
+}
+
+void evenNumbersTo8888() {
+    for (int i = 2; i <= 8888; i += 2) {
+        println(i);
+    }
+}
+
+void oddNumbersFrom7777To8888() {
+    for (int i = 7777; i >= 33; i -= 2) {
+        println(i);
+    }
+}

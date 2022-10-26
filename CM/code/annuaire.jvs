@@ -1,18 +1,14 @@
 void main() {
-    String telephone1;
-    String telephone2;
-    String telephone3;
-    telephone1 = "";
-    telephone2 = "";
-    telephone3 = "";
-    String menu;
-    menu = "";
+    String telephone1 = "";
+    String telephone2 = "";
+    String telephone3 = "";
+    String menu = "";
+
     while (!equal(menu, "Q")) {
         menu = readString("(Q)uitter (C)onsulter (M)odifier ?");
         if (equal(menu, "C")) {
             // Consultation
-            int n;
-            n = readInt("Quelle mémoire ?");
+            int n = readInt("Quelle mémoire ?");
             if (n >= 1 && n <= 3) {
                 print("Contenu de la mémoire ");
                 print(n);
@@ -29,8 +25,7 @@ void main() {
             }
         } else if (equal(menu, "M")) {
             // Modification
-            int n;
-            n = readInt("Quelle mémoire? ");
+            int n = readInt("Quelle mémoire? ");
             if (n >= 1 && n <= 3) {
                 String tel;
                 tel = readString("Numéro de téléphone ?");

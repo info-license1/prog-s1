@@ -1,0 +1,36 @@
+void main() {
+    int[][] tab1 = createTab();
+    displayTab(tab1);
+
+    int[][] tab2 = zeroSqare(tab1);
+    displayTab(tab2);
+}
+
+void displayTab(int[][] tab) {
+    for (int i = 0; i < tab.length; i++) {
+        for (int j = 0; j < tab[i].length; j++) {
+            print(tab[i][j]);
+        }
+        println();
+    }
+    println();
+}
+
+int[][] createTab() {
+    int[][] tab = new int[10][10];
+    for (int i = 0; i < tab.length; i++) {
+        for (int j = 0; j < tab[i].length; j++) {
+            tab[i][j] = i * j;
+        }
+    }
+    return tab;
+}
+
+int[][] zeroSqare(int tab[][]) {
+    for (int i = 0; i < tab.length; i++) {
+        for (int j = 0; j < tab[i].length; j++) {
+            tab[i][j] = 0;
+        }
+    }
+    return tab;
+}

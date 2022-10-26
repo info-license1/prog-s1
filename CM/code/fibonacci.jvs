@@ -18,9 +18,9 @@ void main() {
         fn = f;
         i++;
     }
-    for (int i = 1; i <= n; i++) {
+    for (int y = 1; y <= n; y++) {
         print("iteration ");
-        print(i);
+        print(y);
         print(" : ");
         print(fnn);
         print("+");

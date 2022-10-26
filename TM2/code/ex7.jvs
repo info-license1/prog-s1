@@ -1,0 +1,53 @@
+void main() {
+    int pile1 = 7;
+    int pile2 = 7;
+    int pile3 = 7;
+    int joueur = 1;
+    int coup;
+    int numPile;
+    int pileJouee;
+
+    while (pile1 >= 1 || pile2 >= 1 || pile3 >= 1) {
+        println("Joueur courant : " + joueur);
+        println("Nombre d'allumettes restantes : " + pile1 + " | " + pile2 + " | " + pile3);
+
+        numPile = readInt("Dans quelle pile voulez-vous piocher ? ");
+        while (numPile < 1 || numPile > 3) {
+            println("Veuillez choisir une pile entre 1 et 3");
+            numPile = readInt("Dans quelle pile voulez-vous piocher ? ");
+        }
+        if (numPile == 1) {
+            pileJouee = pile1;
+        } else if (numPile == 2) {
+            pileJouee = pile2;
+        } else {
+            pileJouee = pile3;
+        }
+
+        coup = readInt("Quel coup voulez-vous faire ?");
+        while (coup < 1 || coup > 3 || coup > pileJouee) {
+            println("Veuillez choisir un coup correct");
+            coup = readInt("Quel coup voulez-vous faire ?");
+        }
+
+        if (numPile == 1) {
+            pile1 -= coup;
+        } else if (numPile == 2) {
+            pile2 -= coup;
+        } else {
+            pile3 -= coup;
+        }
+        println("Coup joué : " + coup + " allumettes dans la pile " + numPile);
+        println();
+
+        if (joueur == 1) {
+            joueur = 2;
+        } else if (joueur == 2) {
+            joueur = 3;
+        } else {
+            joueur = 1;
+        }
+    }
+
+    println("Le gagnant est le joueur " + joueur + "!");
+}

@@ -1,0 +1,43 @@
+void main() {
+    twoConsecutiveSameNumbers();
+    twoSameNumbers();
+}
+
+void twoConsecutiveSameNumbers() {
+    boolean res = false;
+    while (!res) {
+        int temp = readInt("Veuillez choisir un nombre :");
+        int temp2 = readInt("Veuillez choisir un nombre :");
+        if (temp == temp2) {
+            res = true;
+        }
+    }
+    println("Vous avez choisi deux nombres identiques à la suite.");
+}
+
+void twoSameNumbers() {
+    boolean res = false;
+    int i = 1;
+    int[] tab = {readInt("Veuillez choisir un nombre :")};
+
+    while (!res) {
+        int temp = readInt("Veuillez choisir un nombre :");
+
+        for (int element : tab) {
+            if (element == temp) {
+                res = true;
+            }
+        }
+
+        int[] newTab = new int[i + 1];
+        for (i = 0; i < tab.length; i++) {
+            newTab[i] = tab[i];
+        }
+        newTab[i] = temp;
+        tab = newTab;
+
+        i++;
+    }
+
+    println("Vous avez choisi deux nombres identiques.");
+}

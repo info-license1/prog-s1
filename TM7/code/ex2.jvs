@@ -1,0 +1,56 @@
+void main() {
+    int[] tab = new int[] {5, 6, 7, 8, 9, 10};
+    println(multiSum(tab, 2));
+
+    int[] multiTab = multiTab(tab, 2);
+    for (int i : multiTab) {
+        print(i + " ");
+    }
+    println("");
+
+    int[] randomTab = randomTab(10, 30);
+    for (int i : randomTab) {
+        print(i + " ");
+    }
+    println("");
+
+    println(randomSum(tab, 2));
+}
+
+int multiSum(int tab[], int n) {
+    int sum = 0;
+    for (int i = 0; i < tab.length; i++) {
+        if (i % n == 0) {
+            sum += tab[i];
+        }
+    }
+    return sum;
+}
+
+int[] multiTab(int tab[], int n) {
+    int[] newTab = new int[tab.length];
+    int y = 0;
+    for (int i = 0; i < tab.length; i++) {
+        if (i % n == 0) {
+            newTab[y] = tab[i];
+            y++;
+        }
+    }
+    return newTab;
+}
+
+int[] randomTab(int n, int h) {
+    int[] tab = new int[n];
+    for (int i = 0; i < n; i++) {
+        tab[i] = random(0, h);
+    }
+    return tab;
+}
+
+int randomSum(int tab[], int n) {
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += tab[random(0, tab.length)];
+    }
+    return sum;
+}

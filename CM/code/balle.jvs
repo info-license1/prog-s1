@@ -1,21 +1,13 @@
 void main() {
-    int balleX;
-    int balleY;
-    int curseurX;
-    int curseurY;
-    int vitesseX;
-    int vitesseY;
-    int largeur;
-    int hauteur;
+    int balleX = 0;
+    int balleY = 0;
+    int curseurX = 0;
+    int curseurY = 0;
+    int vitesseX = 1;
+    int vitesseY = 1;
+    int largeur = 30;
+    int hauteur = 10;
     double temps;
-    balleX = 0;
-    balleY = 0;
-    curseurX = 0;
-    curseurY = 0;
-    vitesseX = 1;
-    vitesseY = 1;
-    largeur = 30;
-    hauteur = 10;
     // temps = now();
     clear();
     while (true) {
