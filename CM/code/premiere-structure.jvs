@@ -1,0 +1,73 @@
+class NotesS1 {
+    double suites;
+    double groupes;
+    double physique;
+    double anglais;
+    double prog;
+    double outils;
+    double exprs;
+}
+
+class Etudiant {
+    String nom;
+    String prenom;
+    int age;
+    NotesS1 notes;
+    double moyenne;
+    String sexe;
+}
+
+void main() {
+    Etudiant[] p = new Etudiant[3];
+    int[] t = new int[5];
+    p[0] = new Etudiant();
+    p[1] = new Etudiant();
+    p[2] = new Etudiant();
+    p[0].nom = "Dima";
+    p[0].prenom = "Catalin";
+    p[0].age = 53;
+    p[0].sexe = "m";
+    p[0].notes = new NotesS1();
+    p[0].notes.suites = 0.5;
+    p[0].notes.groupes = 10.5;
+    p[0].notes.physique = 2.5;
+    p[0].notes.prog = 20;
+    p[0].moyenne =
+            (p[0].notes.suites
+                            + p[0].notes.groupes
+                            + p[0].notes.physique
+                            + p[0].notes.prog
+                            + p[0].notes.anglais
+                            + p[0].notes.outils
+                            + p[0].notes.exprs)
+                    / 7;
+    // p[0].adresse = "Créteil"; champs inexistant !
+    println("Nom de l'étudiant 0 : " + p[0].nom);
+    println("Prénom de l'étudiant 0 : " + p[0].prenom);
+    println("Âge de l'étudiant 0 : " + p[0].age);
+    println("Moyenne de l'étudiant 0 : " + p[0].moyenne);
+    println("Sexe de l'étudiant 0 : " + p[0].sexe);
+    /*    p.nom = "Rossi";
+    t[0] = 5;
+    p.notes = new double[7];
+    p.notes[5] = 10.5;
+    for (int i = 0; i < p.notes.length; i++) {
+        println(p.notes[i]);
+    }
+    */
+
+    /*
+    p[0].notes = new double[5];
+    p[0].notes[0] = 0.5;
+    p[0].notes[1] = 6.5;
+    p[0].notes[2] = 6.5;
+    p[0].notes[3] = 6.5;
+    p[0].notes[4] = 6.5;
+    double somme = 0.0;
+    for (int i = 0; i < p[0].notes.length; i++) {
+        somme = somme + p[0].notes[i];
+    }
+    p[0].moyenne = somme / p[0].notes.length;
+
+    */
+}

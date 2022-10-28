@@ -1,0 +1,15 @@
+void main() {
+    int y = readInt("Enter a number: ");
+
+    for (int i = 0; i < y; i++) {
+        for (int j = 0; j < y; j++) {
+            if (j == i) {
+                print("|");
+            } else {
+                print("-");
+            }
+        }
+        sleep(500);
+        clear();
+    }
+}

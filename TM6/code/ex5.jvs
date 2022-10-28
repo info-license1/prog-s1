@@ -1,0 +1,4 @@
+void main() {
+    print(
+            "Aller voir le code du fichier ex6.jvs dans le dossier TM3, qui me paraît être bien plus simple que de procéder comme l'énnoncé le demande.");
+}

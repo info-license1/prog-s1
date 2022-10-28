@@ -1,0 +1,13 @@
+void main() {
+    int[] tab = new int[random(5, 15)];
+    for (int i = 0; i < tab.length; i++) {
+        tab[i] = readInt("Entrer un nombre : ");
+    }
+
+    int k = readInt("Entrez un multiplicateur : ");
+
+    for (int i : tab) {
+        i *= k;
+        println(i);
+    }
+}

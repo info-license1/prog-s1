@@ -1,0 +1,13 @@
+void main() {
+    int[] tab = new int[random(5, 15)];
+    for (int i = 0; i < tab.length; i++) {
+        tab[i] = readInt("Entrer un nombre : ");
+    }
+
+    int minimum = tab[0];
+    for (int i = 0; i < tab.length; i++) {
+        if (tab[i] < minimum) {
+            minimum = tab[i];
+        }
+    }
+}

@@ -1,0 +1,19 @@
+void main() {
+    int[] firstVector = new int[5];
+    int[] secondVector = new int[5];
+
+    for (int i = 0; i < firstVector.length; i++) {
+        firstVector[i] = readInt("Enter a number for the first vector: ");
+        secondVector[i] = readInt("Enter a number for the second vector: ");
+    }
+
+    if (firstVector.length == secondVector.length) {
+        int[] resultVector = new int[firstVector.length];
+        for (int i = 0; i < firstVector.length; i++) {
+            resultVector[i] = firstVector[i] + secondVector[i];
+            println(resultVector[i]);
+        }
+    } else {
+        println("The vectors have different lengths!");
+    }
+}

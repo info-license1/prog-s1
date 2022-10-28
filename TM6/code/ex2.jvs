@@ -1,0 +1,29 @@
+void main() {
+    dessinerTriangle(readInt("Entrez la hauteur du triangle : "));
+}
+
+void dessinerPlusieurs(int n) {
+    for (int i = 0; i < n; i++) {
+        print("*");
+    }
+}
+
+void dessinerLigne(int j, int n) {
+    for (int i = 0; i < j / 2; i++) {
+        print(" ");
+    }
+    dessinerPlusieurs(n);
+    for (int i = 0; i < j / 2; i++) {
+        print(" ");
+    }
+}
+
+void dessinerTriangle(int n) {
+    int multiplier;
+
+    for (int i = 0; i < n; i++) {
+        multiplier = i * 2 + 1;
+        dessinerLigne(n * 2 - multiplier, multiplier);
+        print("\n");
+    }
+}

@@ -1,0 +1,15 @@
+void main() {
+    int[] tab = new int[10];
+    for (int i = 0; i < tab.length; i++) {
+        tab[i] = readInt("Entrer un nombre : ");
+    }
+
+    for (int i = 0; i < tab.length / 2; i++) {
+        if (tab[i] == tab[tab.length - 1 - i]) {
+            println("Cette série est un palyndrome");
+        } else {
+            println("Cette série n'est pas un palyndrome");
+            break;
+        }
+    }
+}

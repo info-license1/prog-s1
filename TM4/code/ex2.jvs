@@ -1,0 +1,17 @@
+void main() {
+    int[] tab = new int[100];
+    boolean chosen3Times = false;
+
+    while (!chosen3Times) {
+        int number = readInt("Choose a number between 0 and 99:");
+
+        if (number < 0 || number > 99) {
+            println("Number is not between 0 and 99");
+        } else {
+            tab[number]++;
+            if (tab[number] == 3) {
+                chosen3Times = true;
+            }
+        }
+    }
+}

@@ -1,0 +1,5 @@
+void main() {
+    String[] tab = {"Bonjour", "Hello", "Hola", "Ciao", "Hallo"};
+    int i = random(0, tab.length);
+    println(tab[i]);
+}
