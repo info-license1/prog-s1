@@ -17,4 +17,4 @@ Contributions to this project are welcome. To contribute, please fork the reposi
 
 ## License
 
-This project is licensed under the MIT License. See the `LICENSE` file for more information.
+This project is licensed under the MIT License. See the [LICENSE](/blob/main/LICENSE) file for more information.
