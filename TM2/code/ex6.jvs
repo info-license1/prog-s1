@@ -1,21 +1,28 @@
 void main() {
-    twoConsecutiveSameNumbers();
-    twoSameNumbers();
+    firstQuesiton();
+    sleep(5000);
+    clear();
+
+    secondQuestion();
+    sleep(5000);
+    clear();
 }
 
-void twoConsecutiveSameNumbers() {
-    boolean res = false;
-    while (!res) {
-        int temp = readInt("Veuillez choisir un nombre :");
-        int temp2 = readInt("Veuillez choisir un nombre :");
-        if (temp == temp2) {
-            res = true;
+void firstQuesiton() {
+    int num = readInteger("Entrez un nombre: ");
+
+    while (true) {
+        int asked = readInteger("Entrez un nombre: ");
+        if (asked == num) {
+            println("Got it! Vous avez rentré " + num + " deux fois de suite!");
+            break;
+        } else {
+            num = asked;
         }
     }
-    println("Vous avez choisi deux nombres identiques à la suite.");
 }
 
-void twoSameNumbers() {
+void secondQuestion() {
     boolean res = false;
     int i = 1;
     int[] tab = {readInt("Veuillez choisir un nombre :")};

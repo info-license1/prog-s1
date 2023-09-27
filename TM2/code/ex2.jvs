@@ -1,31 +1,58 @@
 void main() {
-    printNumbers();
-    numbersFrom9999To1();
-    evenNumbersTo8888();
-    oddNumbersFrom7777To8888();
+    println("Entiers entre 0 et n");
+    println("");
+    firstQuestion();
+    sleep(5000);
+    clear();
+
+    println("Entiers entre 9999 et 1");
+    println("");
+    secondQuestion();
+    sleep(5000);
+    clear();
+
+    println("Entiers pairs entre 2 et 8888");
+    println("");
+    thirdQuestion();
+    sleep(5000);
+    clear();
+
+    println("Entiers impairs entre 7777 et 33");
+    println("");
+    fourthQuestion();
+    sleep(5000);
+    clear();
 }
 
-void printNumbers() {
-    int nombre = readInt("Veuillez Choisir un nombre :");
-    for (int i = 0; i <= nombre; i++) {
+void firstQuestion() {
+    // En entrant un nombre negatif, le programme ne fait rien
+    // car la boucle for ne s'execute que si i < num, or i est
+    // initialise a 0, et 0 n'est pas inferieur a un nombre negatif
+
+    int num = readInteger("Enter a number: ");
+    for (int i = 0; i < num; i++) {
         println(i);
     }
 }
 
-void numbersFrom9999To1() {
+void secondQuestion() {
     for (int i = 9999; i > 0; i--) {
         println(i);
     }
 }
 
-void evenNumbersTo8888() {
-    for (int i = 2; i <= 8888; i += 2) {
-        println(i);
+void thirdQuestion() {
+    for (int i = 2; i < 8889; i++) {
+        if (i % 2 == 0) {
+            println(i);
+        }
     }
 }
 
-void oddNumbersFrom7777To8888() {
-    for (int i = 7777; i >= 33; i -= 2) {
-        println(i);
+void fourthQuestion() {
+    for (int i = 7777; i > 32; i--) {
+        if (i % 2 != 0) {
+            println(i);
+        }
     }
 }

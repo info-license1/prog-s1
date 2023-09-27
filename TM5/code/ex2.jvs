@@ -1,0 +1,29 @@
+void main() {
+    int[] table = new int[random(3, 20)];
+
+    for (int i = 0; i < table.length; i++) {
+        table[i] = readInt("Enter a number: ");
+    }
+
+    println("Initial array");
+    for (int i = 0; i < table.length; i++) {
+        print(table[i] + " ");
+    }
+    println("");
+    println("");
+
+    int toDelete = readInt("Enter a number to delete from the table: ");
+
+    boolean[] indexes = new boolean[table.length];
+    for (int i = 0; i < table.length; i++) {
+        if (table[i] == toDelete) {
+            indexes[i] = true;
+            break;
+        }
+    }
+
+    println("After deleting the number " + toDelete);
+    for (int i = 0; i < table.length; i++) {
+        print(table[i] + " ");
+    }
+}

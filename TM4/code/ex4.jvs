@@ -1,13 +1,23 @@
 void main() {
-    int[] tab = new int[random(5, 15)];
-    for (int i = 0; i < tab.length; i++) {
-        tab[i] = readInt("Entrer un nombre : ");
+    int n = readInt("How many numbers: ");
+    int k = readInt("Enter a number: ");
+    int[] table = new int[n];
+
+    for (int i = 0; i < n; i++) {
+        table[i] = readInt("What is the " + (i + 1) + " number:");
     }
 
-    int k = readInt("Entrez un multiplicateur : ");
-
-    for (int i : tab) {
-        i *= k;
-        println(i);
+    println("Initial table");
+    for (int i : table) {
+        print("| " + i + " ");
     }
+    println("|");
+
+    println("---------------");
+
+    println("Multiples of " + k + " in the table");
+    for (int i : table) {
+        print("| " + i * k + " ");
+    }
+    println("|");
 }

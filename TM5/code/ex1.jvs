@@ -1,0 +1,28 @@
+void main() {
+    int[] table = new int[random(3, 20)];
+
+    for (int i = 0; i < table.length; i++) {
+        table[i] = readInt("Enter a number: ");
+    }
+
+    println("Initial array");
+    for (int i = 0; i < table.length; i++) {
+        print(table[i] + " ");
+    }
+    println("");
+    println("");
+
+    int iter = readInt("Enter a number: ");
+    for (int i = 0; i < iter; i++) {
+        int temp = table[table.length - 1];
+        for (int j = table.length - 1; j > 0; j--) {
+            table[j] = table[j - 1];
+        }
+        table[0] = temp;
+    }
+
+    println("After moving " + iter + " times");
+    for (int i = 0; i < table.length; i++) {
+        print(table[i] + " ");
+    }
+}

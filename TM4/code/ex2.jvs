@@ -1,17 +1,20 @@
 void main() {
-    int[] tab = new int[100];
-    boolean chosen3Times = false;
+    int[] numbers = new int[100];
+    boolean isEnded = false;
+    int endingNumber = 0;
 
-    while (!chosen3Times) {
-        int number = readInt("Choose a number between 0 and 99:");
+    while (!isEnded) {
+        int n = readInt("Enter a number between 0 and 99: ");
+        while (n < 0 || n > 99) {
+            n = readInt("Invalid number. Enter again: ");
+        }
 
-        if (number < 0 || number > 99) {
-            println("Number is not between 0 and 99");
-        } else {
-            tab[number]++;
-            if (tab[number] == 3) {
-                chosen3Times = true;
-            }
+        numbers[n]++;
+        if (numbers[n] == 3) {
+            isEnded = true;
+            endingNumber = n;
         }
     }
+
+    println("The number " + endingNumber + " was entered 3 times.");
 }

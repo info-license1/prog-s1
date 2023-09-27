@@ -1,13 +1,17 @@
 void main() {
-    int[] tab = new int[random(5, 15)];
-    for (int i = 0; i < tab.length; i++) {
-        tab[i] = readInt("Entrer un nombre : ");
+    int n = readInt("How many numbers: ");
+    int[] table = new int[n];
+
+    for (int i = 0; i < n; i++) {
+        table[i] = readInt("What is the " + (i + 1) + " number:");
     }
 
-    int minimum = tab[0];
-    for (int i = 0; i < tab.length; i++) {
-        if (tab[i] < minimum) {
-            minimum = tab[i];
+    int min = table[0];
+    for (int i = 0; i < n; i++) {
+        if (table[i] < min) {
+            min = table[i];
         }
     }
+
+    println("The minimum is " + min);
 }

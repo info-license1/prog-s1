@@ -1,0 +1,366 @@
+void main() {
+    String[] letters = getLetters();
+    String[] guessedLetters = new String[letters.length];
+    int guesses = 0;
+
+    for (int i = 0; i < letters.length; i++) {
+        guessedLetters[i] = "_";
+    }
+
+    while (guesses < 6) {
+        printHangman(guesses);
+        println("You have " + (6 - guesses) + " guesses left.");
+        println(" " + printLetters(guessedLetters, true));
+
+        String guess = readString("Guess a letter: ");
+        while (guess.length() != 1) {
+            guess = readString("Guess a letter: ");
+        }
+
+        boolean correct = false;
+        for (int i = 0; i < letters.length; i++) {
+            if (guess.equals(letters[i]) && !guess.equals(guessedLetters[i])) {
+                guessedLetters[i] = guess;
+                correct = true;
+                break;
+            }
+        }
+
+        if (!correct) {
+            guesses++;
+        }
+
+        if (checkWin(letters, guessedLetters)) {
+            printHangman(guesses);
+            println("You win!");
+            println("The word was " + printLetters(letters, false));
+            println("You had " + (6 - guesses) + " guesses left.");
+            break;
+        }
+    }
+
+    if (!checkWin(letters, guessedLetters)) {
+        printHangman(guesses);
+        println("Hanged man! You lose!");
+        println("The word was " + printLetters(letters, false));
+        println("You had " + (6 - guesses) + " guesses left.");
+    }
+}
+
+String[] getLetters() {
+    String[] wordList = {
+        "abruptly",
+        "absurd",
+        "abyss",
+        "affix",
+        "askew",
+        "avenue",
+        "awkward",
+        "axiom",
+        "azure",
+        "bagpipes",
+        "bandwagon",
+        "banjo",
+        "bayou",
+        "beekeeper",
+        "bikini",
+        "blitz",
+        "blizzard",
+        "boggle",
+        "bookworm",
+        "boxcar",
+        "boxful",
+        "buckaroo",
+        "buffalo",
+        "buffoon",
+        "buxom",
+        "buzzard",
+        "buzzing",
+        "buzzwords",
+        "caliph",
+        "cobweb",
+        "cockiness",
+        "croquet",
+        "crypt",
+        "curacao",
+        "cycle",
+        "daiquiri",
+        "dirndl",
+        "disavow",
+        "dizzying",
+        "duplex",
+        "dwarves",
+        "embezzle",
+        "equip",
+        "espionage",
+        "euouae",
+        "exodus",
+        "faking",
+        "fishhook",
+        "fixable",
+        "fjord",
+        "flapjack",
+        "flopping",
+        "fluffiness",
+        "flyby",
+        "foxglove",
+        "frazzled",
+        "frizzled",
+        "fuchsia",
+        "funny",
+        "gabby",
+        "galaxy",
+        "galvanize",
+        "gazebo",
+        "giaour",
+        "gizmo",
+        "glowworm",
+        "glyph",
+        "gnarly",
+        "gnostic",
+        "gossip",
+        "grogginess",
+        "haiku",
+        "haphazard",
+        "hyphen",
+        "iatrogenic",
+        "icebox",
+        "injury",
+        "ivory",
+        "ivy",
+        "jackpot",
+        "jaundice",
+        "jawbreaker",
+        "jaywalk",
+        "jazziest",
+        "jazzy",
+        "jelly",
+        "jigsaw",
+        "jinx",
+        "jiujitsu",
+        "jockey",
+        "jogging",
+        "joking",
+        "jovial",
+        "joyful",
+        "juicy",
+        "jukebox",
+        "jumbo",
+        "kayak",
+        "kazoo",
+        "keyhole",
+        "khaki",
+        "kilobyte",
+        "kiosk",
+        "kitsch",
+        "kiwifruit",
+        "klutz",
+        "knapsack",
+        "larynx",
+        "lengths",
+        "lucky",
+        "luxury",
+        "lymph",
+        "marquis",
+        "matrix",
+        "megahertz",
+        "microwave",
+        "mnemonic",
+        "mystify",
+        "naphtha",
+        "nightclub",
+        "nowadays",
+        "numbskull",
+        "nymph",
+        "onyx",
+        "ovary",
+        "oxidize",
+        "oxygen",
+        "pajama",
+        "peekaboo",
+        "phlegm",
+        "pixel",
+        "pizazz",
+        "pneumonia",
+        "polka",
+        "pshaw",
+        "psyche",
+        "puppy",
+        "puzzling",
+        "quartz",
+        "queue",
+        "quips",
+        "quixotic",
+        "quiz",
+        "quizzes",
+        "quorum",
+        "razzmatazz",
+        "rhubarb",
+        "rhythm",
+        "rickshaw",
+        "schnapps",
+        "scratch",
+        "shiv",
+        "snazzy",
+        "sphinx",
+        "spritz",
+        "squawk",
+        "staff",
+        "strength",
+        "strengths",
+        "stretch",
+        "stronghold",
+        "stymied",
+        "subway",
+        "swivel",
+        "syndrome",
+        "thriftless",
+        "thumbscrew",
+        "topaz",
+        "transcript",
+        "transgress",
+        "transplant",
+        "triphthong",
+        "twelfth",
+        "twelfths",
+        "unknown",
+        "unworthy",
+        "unzip",
+        "uptown",
+        "vaporize",
+        "vixen",
+        "vodka",
+        "voodoo",
+        "vortex",
+        "voyeurism",
+        "walkway",
+        "waltz",
+        "wave",
+        "wavy",
+        "waxy",
+        "wellspring",
+        "wheezy",
+        "whiskey",
+        "whizzing",
+        "whomever",
+        "wimpy",
+        "witchcraft",
+        "wizard",
+        "woozy",
+        "wristwatch",
+        "wyvern",
+        "xylophone",
+        "yachtsman",
+        "yippee",
+        "yoked",
+        "youthful",
+        "yummy",
+        "zephyr",
+        "zigzag",
+        "zigzagging",
+        "zilch",
+        "zipper",
+        "zodiac",
+        "zombie"
+    };
+
+    return wordList[random(0, wordList.length)].split("");
+}
+
+boolean checkWin(String[] letters, String[] guesses) {
+    for (int i = 0; i < letters.length; i++) {
+        if (!letters[i].equals(guesses[i])) {
+            return false;
+        }
+    }
+    return true;
+}
+
+String printLetters(String[] letters, boolean showSpaces) {
+    String output = "";
+    for (int i = 0; i < letters.length; i++) {
+        output += letters[i];
+        if (showSpaces) {
+            output += " ";
+        }
+    }
+    return output;
+}
+
+void printHangman(int guesses) {
+    // https://gist.github.com/chrishorton/8510732aa9a80a03c829b09f12e20d9c
+
+    clear();
+
+    if (guesses == 0) {
+        println("  +---+");
+        println("  |   |");
+        println("      |");
+        println("      |");
+        println("      |");
+        println("      |");
+        println("=========");
+    }
+
+    if (guesses == 1) {
+        println("  +---+");
+        println("  |   |");
+        println("  O   |");
+        println("      |");
+        println("      |");
+        println("      |");
+        println("=========");
+    }
+
+    if (guesses == 2) {
+        println("  +---+");
+        println("  |   |");
+        println("  O   |");
+        println("  |   |");
+        println("      |");
+        println("      |");
+        println("=========");
+    }
+
+    if (guesses == 3) {
+        println("  +---+");
+        println("  |   |");
+        println("  O   |");
+        println(" /|   |");
+        println("      |");
+        println("      |");
+        println("=========");
+    }
+
+    if (guesses == 4) {
+        println("  +---+");
+        println("  |   |");
+        println("  O   |");
+        println(" /|\\  |");
+        println("      |");
+        println("      |");
+        println("=========");
+    }
+
+    if (guesses == 5) {
+        println("  +---+");
+        println("  |   |");
+        println("  O   |");
+        println(" /|\\  |");
+        println(" /    |");
+        println("      |");
+        println("=========");
+    }
+
+    if (guesses == 6) {
+        println("  +---+");
+        println("  |   |");
+        println("  O   |");
+        println(" /|\\  |");
+        println(" / \\  |");
+        println("      |");
+        println("=========");
+    }
+
+    println("");
+}

@@ -1,39 +1,48 @@
 void main() {
-    suiteTourPenchee(readInt("Veuillez choisir un nombre :"));
-    println();
-    suiteTourPenchee50000();
+    firstQuestion();
+    sleep(5000);
+    clear();
+
+    secondQuestion();
+    sleep(5000);
+    clear();
 }
 
-void suiteTourPenchee(int k) {
-    int[] tab = {1, 1, 1};
-    for (int i : tab) {
-        println(i);
-    }
-    int temp;
+void firstQuestion() {
+    int k = readInteger("Enter a number");
+    int[] nums = new int[] {1, 1, 1};
+
+    println(nums[0]);
+    println(nums[1]);
+    println(nums[2]);
 
     for (int i = 3; i < k; i++) {
-        temp = tab[0] + tab[1] + tab[2] + i;
-        tab[0] = tab[1];
-        tab[1] = tab[2];
-        tab[2] = temp;
-        println(temp);
+        int next = nums[0] + nums[1] + nums[2] + i;
+        nums[0] = nums[1];
+        nums[1] = nums[2];
+        nums[2] = next;
+
+        println(next);
     }
 }
 
-void suiteTourPenchee50000() {
-    int[] tab = {1, 1, 1};
-    for (int i : tab) {
-        println(i);
-    }
-    int temp = 0;
+void secondQuestion() {
+    int[] nums = new int[] {1, 1, 1};
+
+    println(nums[0]);
+    println(nums[1]);
+    println(nums[2]);
+
+    int next = 0;
     int i = 3;
 
-    while (temp < 50000) {
-        temp = tab[0] + tab[1] + tab[2] + i;
-        tab[0] = tab[1];
-        tab[1] = tab[2];
-        tab[2] = temp;
-        println(temp);
+    while (next != 50000) {
+        next = nums[0] + nums[1] + nums[2] + i;
+        nums[0] = nums[1];
+        nums[1] = nums[2];
+        nums[2] = next;
         i++;
+
+        println(next);
     }
 }

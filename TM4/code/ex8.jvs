@@ -1,0 +1,193 @@
+void main() {
+    int[] cochon = new int[] {0, 0, 0, 0, 0, 0};
+
+    while (!isCochon(cochon)) {
+        int newPart =
+                readInt(
+                        "Quelle partie du cochon voulez-vous ajouter ? (1 = corps, 2 = oreilles, 3 = yeux, 4 = pattes, 5 = tete, 6 = queue) ");
+
+        if (newPart < 1 || newPart > 6) {
+            println("Cette partie n'existe pas !");
+        } else {
+            if (newPart == 4) {
+                cochon[newPart - 1] += 1;
+            } else {
+                cochon[newPart - 1] = 1;
+            }
+        }
+
+        clear();
+        printCochon(cochon);
+    }
+}
+
+boolean isCochon(int[] cochon) {
+    return cochon[0] == 1
+            && cochon[1] == 1
+            && cochon[2] == 1
+            && cochon[3] == 4
+            && cochon[4] == 1
+            && cochon[5] == 1;
+}
+
+void printCochon(int[] cochon) {
+    // ligne 1
+    print("   ");
+    if (cochon[4] == 1) {
+        print("_");
+    } else {
+        print(" ");
+    }
+    if (cochon[4] == 1) {
+        if (cochon[1] == 0) {
+            print("___");
+        } else if (cochon[1] == 1) {
+            print("_/|");
+        } else {
+            print("//|");
+        }
+    } else {
+        if (cochon[1] == 0) {
+            print("   ");
+        } else if (cochon[1] == 1) {
+            print(" /|");
+        } else {
+            print("//|");
+        }
+    }
+    if (cochon[0] == 1) {
+        println(".-~~~~~-,");
+    } else {
+        println();
+    }
+
+    // ligne 2
+    print(" ");
+    if (cochon[4] == 1) {
+        print("_/");
+    } else {
+        print("  ");
+    }
+    if (cochon[2] == 0) {
+        print("  ");
+    } else if (cochon[2] == 1) {
+        print(" 6");
+    } else {
+        print("66");
+    }
+    print("  ");
+    if (cochon[4] == 1) {
+        print("\\");
+    } else {
+        print(" ");
+    }
+    print("        ");
+    if (cochon[0] == 1) {
+        print("\\");
+    } else {
+        print(" ");
+    }
+
+    if (cochon[5] == 1) {
+        println("_@");
+    } else {
+        println();
+    }
+
+    // ligne 3
+    if (cochon[4] == 1) {
+        print("(\")_   /");
+    } else {
+        print("        ");
+    }
+
+    if (cochon[3] >= 3) {
+        print("    /   ");
+    } else {
+        print("        ");
+    }
+
+    if (cochon[0] == 1) {
+        println("|");
+    } else {
+        println();
+    }
+
+    // ligne 4
+    print("  ");
+    if (cochon[4] == 1) {
+        print("'--'");
+    } else {
+        print("    ");
+    }
+
+    if (cochon[0] == 1) {
+        if (cochon[3] >= 2) {
+            print("|");
+        } else {
+            print("-");
+        }
+        if (cochon[3] >= 1) {
+            print("| |");
+        } else {
+            print("---");
+        }
+        print("-");
+        if (cochon[3] == 4) {
+            print("\\");
+        } else {
+            print("-");
+        }
+        if (cochon[3] >= 3) {
+            println("\\  /");
+        } else {
+            println("--'");
+        }
+    } else {
+        if (cochon[3] >= 2) {
+            print("|");
+        } else {
+            print(" ");
+        }
+        if (cochon[3] >= 1) {
+            print("| |");
+        } else {
+            print("   ");
+        }
+        print(" ");
+        if (cochon[3] == 4) {
+            print("\\");
+        } else {
+            print(" ");
+        }
+        if (cochon[3] >= 3) {
+            println("\\  /");
+        } else {
+            println();
+        }
+    }
+
+    // ligne 5
+    print("      ");
+    if (cochon[3] >= 2) {
+        print("/");
+    } else {
+        print(" ");
+    }
+    if (cochon[3] >= 1) {
+        print("/_/");
+    } else {
+        print("   ");
+    }
+    print(" ");
+    if (cochon[3] == 4) {
+        print("/");
+    } else {
+        print(" ");
+    }
+    if (cochon[3] >= 3) {
+        println("/_/");
+    } else {
+        println();
+    }
+}

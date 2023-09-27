@@ -1,19 +1,48 @@
 void main() {
-    int[] firstVector = new int[5];
-    int[] secondVector = new int[5];
+    int[] table1 = new int[10000];
+    int[] table2 = new int[10000];
 
-    for (int i = 0; i < firstVector.length; i++) {
-        firstVector[i] = readInt("Enter a number for the first vector: ");
-        secondVector[i] = readInt("Enter a number for the second vector: ");
+    int i = 0;
+    int j = 0;
+
+    int sum1 = 0;
+    int sum2 = 0;
+
+    int size1 = 0;
+    int size2 = 0;
+
+    int input = 0;
+
+    while (input != -1) {
+        input = readInt("Enter a number for table 1 (-1 to stop) : ");
+
+        if (input != -1) {
+            table1[i] = input;
+            i++;
+            size1++;
+        }
     }
 
-    if (firstVector.length == secondVector.length) {
-        int[] resultVector = new int[firstVector.length];
-        for (int i = 0; i < firstVector.length; i++) {
-            resultVector[i] = firstVector[i] + secondVector[i];
-            println(resultVector[i]);
+    input = 0;
+
+    while (input != -1) {
+        input = readInt("Enter a number for table 2 (-1 to stop) : ");
+
+        if (input != -1) {
+            table2[j] = input;
+            j++;
+            size2++;
         }
+    }
+
+    if (size1 == size2) {
+        for (int k = 0; k < size1; k++) {
+            sum1 += table1[k];
+            sum2 += table2[k];
+        }
+
+        print("Sum of both tables : " + (sum1 + sum2));
     } else {
-        println("The vectors have different lengths!");
+        print("Error: tables are not the same size");
     }
 }

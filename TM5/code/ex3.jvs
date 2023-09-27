@@ -1,0 +1,28 @@
+void main() {
+    int number = readInt("Enter the width of the triangle (odd):");
+    while (number % 2 == 0) {
+        number = readInt("Enter the width of the triangle (odd):");
+    }
+
+    for (int i = 0; i < number / 2 + number % 2 / 2; i++) {
+        for (int j = 0; j < number; j++) {
+            if (j >= i && j < number - i) {
+                print("X");
+            } else {
+                print(" ");
+            }
+        }
+        println("");
+    }
+
+    for (int i = 0; i < number / 2; i++) {
+        for (int j = 0; j < number; j++) {
+            if (j >= number / 2 - i && j < number / 2 + i + 1) {
+                print("X");
+            } else {
+                print(" ");
+            }
+        }
+        println("");
+    }
+}

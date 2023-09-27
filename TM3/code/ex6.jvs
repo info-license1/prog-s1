@@ -18,7 +18,7 @@ void playGame() {
 
         if (a < 1 || a > 3 || b < 1 || b > 3) {
             println("Invalid move! Make another one.");
-            sleep(5000);
+            sleep(2000);
             continue;
         }
 
@@ -30,7 +30,7 @@ void playGame() {
             }
         } else {
             println("This field is already taken! Choose another one.");
-            sleep(5000);
+            sleep(2000);
             continue;
         }
 

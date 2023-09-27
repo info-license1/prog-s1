@@ -1,10 +1,10 @@
 void main() {
-    int nombre = readInt("Veuillez choisir un nombre pour afficher sa table");
-    for (int i = 0; i <= 15; i++) {
-        if (i < 10) {
-            println(" " + i + " x " + nombre + " = " + i * nombre);
+    int num = readInteger("Enter a number");
+    for (int i = 0; i <= 12; i++) {
+        if (i >= 10) {
+            println(i + " x " + num + " = " + (i * num));
         } else {
-            println(i + " x " + nombre + " = " + i * nombre);
+            println(i + "  x " + num + " = " + (i * num));
         }
     }
 }
