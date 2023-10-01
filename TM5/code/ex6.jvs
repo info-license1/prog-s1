@@ -1,0 +1,86 @@
+void main() {
+    String[] subjects = {
+        "Math",
+        "Science",
+        "English",
+        "History",
+        "Geography",
+        "Computer Science",
+        "Art",
+        "Music",
+        "Physical Education",
+        "Spanish"
+    };
+    // 32 students with first and last names
+    String[] students = {
+        "John Smith",
+        "Jane Doe",
+        "Bob Jones",
+        "Sally Johnson",
+        "Bill Williams",
+        "Mary Brown",
+        "James Miller",
+        "Sarah Davis",
+        "David Garcia",
+        "Karen Rodriguez",
+        "Richard Wilson",
+        "Betty Martinez",
+        "Joseph Anderson",
+        "Nancy Taylor",
+        "Thomas Thomas",
+        "Lisa Hernandez",
+        "Donald Moore",
+        "Sandra Martin",
+        "George Jackson",
+        "Carol Thompson",
+        "Paul White",
+        "Michelle Lopez",
+        "Mark Lee",
+        "Laura Gonzalez",
+        "Kenneth Harris",
+        "Ashley Clark",
+        "Steven King",
+        "Donna Robinson",
+        "Edward Lewis",
+        "Kimberly Walker",
+        "Brian Perez",
+        "Sharon Hall"
+    };
+
+    int[][] grades = new int[32][11];
+
+    // // Ask for grades
+    // for (int i = 0; i < students.length; i++) {
+    //     clear();
+    //     println("Enter grades for " + students[i] + ":");
+    //     for (int j = 0; j < subjects.length; j++) {
+    //         grades[i][j] = readInt(subjects[j] + ": ");
+    //     }
+    // }
+
+    // Ask for grades
+    for (int i = 0; i < students.length; i++) {
+        clear();
+        println("Enter grades for " + students[i] + ":");
+        for (int j = 0; j < subjects.length + 1; j++) {
+            if (j == 0) {
+                grades[i][j] = i;
+            } else {
+                grades[i][j] = random(0, 101);
+            }
+        }
+    }
+
+    showGrades(grades, students, subjects);
+}
+
+void showGrades(int[][] grades, String[] students, String[] subjects) {
+    clear();
+    for (int i = 0; i < students.length; i++) {
+        println(students[i] + " with ID " + grades[i][0] + " has the following grades");
+        for (int j = 0; j < subjects.length; j++) {
+            println("    " + subjects[j] + ": " + grades[i][j + 1]);
+        }
+        println();
+    }
+}

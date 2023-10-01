@@ -1,0 +1,47 @@
+void main() {
+    int tableSize = readInt("Enter table size: ");
+    while (tableSize < 2) {
+        tableSize = readInt("Enter table size: ");
+    }
+
+    boolean[][] table = new boolean[tableSize][tableSize];
+
+    for (int i = 0; i < tableSize; i++) {
+        for (int j = 0; j < tableSize; j++) {
+            int randomNum = random(0, 2);
+            if (randomNum == 0) {
+                table[i][j] = true;
+            } else {
+                table[i][j] = false;
+            }
+        }
+    }
+
+    int x = readInt("Enter x (0-" + (tableSize - 1) + "): ");
+    while (x < 0 || x >= tableSize) {
+        x = readInt("Enter x (0-" + (tableSize - 1) + "): ");
+    }
+
+    int y = readInt("Enter y (0-" + (tableSize - 1) + "): ");
+    while (y < 0 || y >= tableSize) {
+        y = readInt("Enter y (0-" + (tableSize - 1) + "): ");
+    }
+
+    printTable(table, x, y);
+}
+
+void printTable(boolean[][] table, int x, int y) {
+    clear();
+
+    // Print 2x2 table at x, y
+    for (int i = x; i < x + 2; i++) {
+        for (int j = y; j < y + 2; j++) {
+            if (table[i][j] == true) {
+                print("O");
+            } else {
+                print(" ");
+            }
+        }
+        println();
+    }
+}
