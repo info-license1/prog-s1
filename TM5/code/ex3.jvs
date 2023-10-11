@@ -1,27 +1,28 @@
 void main() {
-    int number = readInt("Enter the width of the triangle (odd):");
+    int number = readInt("Width of the triangle (odd):");
     while (number % 2 == 0) {
-        number = readInt("Enter the width of the triangle (odd):");
+        number = readInt("Width of the triangle (odd):");
     }
 
-    for (int i = 0; i < number / 2 + number % 2 / 2; i++) {
+    char[][] cross = new char[number][number];
+
+    for (int i = 0; i < number; i++) {
         for (int j = 0; j < number; j++) {
             if (j == i || j == number - i - 1) {
-                print("X");
+                cross[i][j] = 'X';
             } else {
-                print(" ");
+                cross[i][j] = ' ';
             }
         }
-        println("");
     }
 
-    for (int i = number / 2; i >= 0; i--) {
-        for (int j = 0; j < number; j++) {
-            if (j == i || j == number - i - 1) {
-                print("X");
-            } else {
-                print(" ");
-            }
+    displayTab(cross);
+}
+
+void displayTab(char[][] tab) {
+    for (int i = 0; i < tab.length; i++) {
+        for (int j = 0; j < tab[i].length; j++) {
+            print(tab[i][j]);
         }
         println("");
     }

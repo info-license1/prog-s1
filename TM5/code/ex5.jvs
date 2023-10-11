@@ -1,7 +1,7 @@
 void main() {
-    int tableSize = readInt("Enter table size: ");
+    int tableSize = readInt("Enter table size (> 2): ");
     while (tableSize < 2) {
-        tableSize = readInt("Enter table size: ");
+        tableSize = readInt("Enter table size (> 2): ");
     }
 
     boolean[][] table = new boolean[tableSize][tableSize];
@@ -17,25 +17,28 @@ void main() {
         }
     }
 
-    int x = readInt("Enter x (0-" + (tableSize - 1) + "): ");
-    while (x < 0 || x >= tableSize) {
-        x = readInt("Enter x (0-" + (tableSize - 1) + "): ");
+    int x = readInt("Enter x (0-" + (tableSize - 2) + "): ");
+    while (x < 0 || x >= tableSize - 1) {
+        x = readInt("Enter x (0-" + (tableSize - 2) + "): ");
     }
 
-    int y = readInt("Enter y (0-" + (tableSize - 1) + "): ");
-    while (y < 0 || y >= tableSize) {
-        y = readInt("Enter y (0-" + (tableSize - 1) + "): ");
+    int y = readInt("Enter y (0-" + (tableSize - 2) + "): ");
+    while (y < 0 || y >= tableSize - 1) {
+        y = readInt("Enter y (0-" + (tableSize - 2) + "): ");
     }
 
-    printTable(table, x, y);
+    displaySquareAtCoords(table, x, y, 2);
+    sleep(1000);
+    displayAllSquares(table, readInt("Size of squares to display: "), 500);
 }
 
-void printTable(boolean[][] table, int x, int y) {
-    clear();
+void displaySquareAtCoords(boolean[][] table, int x, int y, int size) {
+    println("Square at (" + x + ", " + y + "):");
+    println("");
 
-    // Print 2x2 table at x, y
-    for (int i = x; i < x + 2; i++) {
-        for (int j = y; j < y + 2; j++) {
+    // Display O if true, space if false
+    for (int i = x; i < x + size; i++) {
+        for (int j = y; j < y + size; j++) {
             if (table[i][j] == true) {
                 print("O");
             } else {
@@ -43,5 +46,19 @@ void printTable(boolean[][] table, int x, int y) {
             }
         }
         println();
+    }
+}
+
+void displayAllSquares(boolean[][] table, int size, int waitTime) {
+    for (int i = 0; i < table.length - size + 1; i++) {
+        for (int j = 0; j < table.length - size + 1; j++) {
+            clear();
+
+            println("All squares of size " + size + ":");
+            println("");
+
+            displaySquareAtCoords(table, i, j, size);
+            sleep(waitTime);
+        }
     }
 }

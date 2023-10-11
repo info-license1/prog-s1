@@ -1,28 +1,39 @@
 void main() {
-    int number = readInt("Enter the width of the diamond (odd):");
+    int number = readInt("Width of the diamond (odd):");
     while (number % 2 == 0) {
-        number = readInt("Enter the width of the diamond (odd):");
+        number = readInt("Width of the diamond (odd):");
     }
+
+    char[][] diamond = new char[number][number];
 
     for (int i = 0; i < number / 2; i++) {
         for (int j = 0; j < number; j++) {
             if (j >= number / 2 - i && j <= number / 2 + i) {
-                print("X");
+                diamond[i][j] = 'X';
             } else {
-                print(" ");
+                diamond[i][j] = ' ';
             }
         }
-        print("\n");
     }
 
-    for (int i = number / 2 + number % 2; i >= 0; i--) {
+    for (int i = 0; i < number / 2 + 1; i++) {
         for (int j = 0; j < number; j++) {
             if (j >= number / 2 - i && j <= number / 2 + i) {
-                print("X");
+                diamond[number - i - 1][j] = 'X';
             } else {
-                print(" ");
+                diamond[number - i - 1][j] = ' ';
             }
         }
-        print("\n");
+    }
+
+    displayTab(diamond);
+}
+
+void displayTab(char[][] tab) {
+    for (int i = 0; i < tab.length; i++) {
+        for (int j = 0; j < tab[i].length; j++) {
+            print(tab[i][j]);
+        }
+        println("");
     }
 }

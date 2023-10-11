@@ -11,7 +11,6 @@ void main() {
         "Physical Education",
         "Spanish"
     };
-    // 32 students with first and last names
     String[] students = {
         "John Smith",
         "Jane Doe",
@@ -48,20 +47,9 @@ void main() {
     };
 
     int[][] grades = new int[32][11];
+    int limit = grades.length;
 
-    // // Ask for grades
-    // for (int i = 0; i < students.length; i++) {
-    //     clear();
-    //     println("Enter grades for " + students[i] + ":");
-    //     for (int j = 0; j < subjects.length; j++) {
-    //         grades[i][j] = readInt(subjects[j] + ": ");
-    //     }
-    // }
-
-    // Ask for grades
     for (int i = 0; i < students.length; i++) {
-        clear();
-        println("Enter grades for " + students[i] + ":");
         for (int j = 0; j < subjects.length + 1; j++) {
             if (j == 0) {
                 grades[i][j] = i;
@@ -71,7 +59,54 @@ void main() {
         }
     }
 
-    showGrades(grades, students, subjects);
+    boolean quit = false;
+    while (!quit) {
+        showGrades(grades, students, subjects);
+        int input =
+                readInt(
+                        "Enter 1 to modify a grade, 2 to remove a student, 3 to add a student, or 4 to quit: ");
+
+        if (input == 1) {
+            int student = readInt("Enter student ID: ");
+            int subject = readInt("Enter subject ID: ");
+            int grade = readInt("Enter new grade: ");
+            while (grade < 0 || grade > 100) {
+                grade = readInt("Enter new grade (1-100): ");
+            }
+
+            grades = modifyGrade(grades, student, subject, grade);
+        } else if (input == 2) {
+            int student = readInt("Enter student ID: ");
+            while (student < 0 || student >= grades.length) {
+                student = readInt("Enter student ID: ");
+            }
+
+            grades = removeStudent(grades, student);
+            String[] newStudents = new String[students.length - 1];
+            for (int i = 0; i < students.length; i++) {
+                if (i < student) {
+                    newStudents[i] = students[i];
+                } else if (i > student) {
+                    newStudents[i - 1] = students[i];
+                }
+            }
+
+            students = newStudents;
+        } else if (input == 3) {
+            grades = addStudent(grades, subjects);
+            String[] newStudents = new String[students.length + 1];
+            for (int i = 0; i < students.length; i++) {
+                newStudents[i] = students[i];
+            }
+
+            newStudents[students.length] = readString("Enter student name: ");
+            students = newStudents;
+        } else if (input == 4) {
+            quit = true;
+            clear();
+            println("Goodbye!");
+        }
+    }
 }
 
 void showGrades(int[][] grades, String[] students, String[] subjects) {
@@ -82,5 +117,53 @@ void showGrades(int[][] grades, String[] students, String[] subjects) {
             println("    " + subjects[j] + ": " + grades[i][j + 1]);
         }
         println();
+        println("------------------------------------");
+        println();
     }
+}
+
+int[][] modifyGrade(int[][] grades, int student, int subject, int grade) {
+    grades[student][subject] = grade;
+    return grades;
+}
+
+int[][] removeStudent(int[][] grades, int student) {
+    if (student < 0 || student >= grades.length) {
+        return grades;
+    }
+
+    int[][] newGrades = new int[grades.length - 1][grades[0].length];
+    for (int i = 0; i < grades.length; i++) {
+        if (i < student) {
+            newGrades[i] = grades[i];
+        } else if (i > student) {
+            newGrades[i - 1] = grades[i];
+        }
+    }
+    return newGrades;
+}
+
+int[][] addStudent(int[][] grades, String[] subjects) {
+    if (grades.length == 32) {
+        return grades;
+    }
+
+    // Ask for student grades
+    int[] newStudentGrades = new int[subjects.length];
+
+    for (int i = 0; i < subjects.length; i++) {
+        newStudentGrades[i] = readInt("Enter grade for " + subjects[i] + ": ");
+        while (newStudentGrades[i] < 0 || newStudentGrades[i] > 100) {
+            newStudentGrades[i] = readInt("Enter grade for " + subjects[i] + ": ");
+        }
+    }
+
+    // Add student to grades
+    int[][] newGrades = new int[grades.length + 1][grades[0].length];
+    for (int i = 0; i < grades.length; i++) {
+        newGrades[i] = grades[i];
+    }
+
+    newGrades[grades.length] = newStudentGrades;
+    return newGrades;
 }
