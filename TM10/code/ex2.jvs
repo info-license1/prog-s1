@@ -1,0 +1,23 @@
+void main() {
+    Personne p = new Personne();
+    p.saisirFichePerso();
+    p.afficherFichePerso();
+}
+
+class Personne {
+    String prenom;
+    String nom;
+    int age;
+    int taille;
+
+    void saisirFichePerso() {
+        prenom = readString("Saisir le prénom : ");
+        nom = readString("Saisir le nom : ");
+        age = readInt("Saisir l'âge : ");
+        taille = readInt("Saisir la taille : ");
+    }
+
+    void afficherFichePerso() {
+        print("Je suis " + prenom + " " + nom + " et j'ai " + age + " ans");
+    }
+}

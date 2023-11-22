@@ -1,0 +1,85 @@
+void main() {
+    Personne p1 = new Personne();
+    p1.saisirFichePerso();
+
+    Personne p2 = new Personne();
+    p2.saisirFichePerso();
+    p2.anniversaire();
+
+    p1.afficherFichePerso();
+    p2.afficherFichePerso();
+
+    plusGrand(p1, p2);
+    estPlusJeune(p1, p2);
+
+    // Questions 5+
+
+    Personne[] personnes = new Personne[5];
+
+    for (int i = 0; i < personnes.length; i++) {
+        personnes[i] = new Personne();
+        personnes[i].saisirFichePerso();
+    }
+
+    agesPersonnes(personnes);
+    String nom = readString("Saisir un nom a trouver parmis les personnes: ");
+    Personne p = trouvePersonne(personnes, nom);
+
+    if (p != null) {
+        print("Personne trouvée");
+        p.afficherFichePerso();
+    } else {
+        print("Personne non trouvée");
+    }
+}
+
+class Personne {
+    String prenom;
+    String nom;
+    int age;
+    int taille;
+
+    void saisirFichePerso() {
+        prenom = readString("Saisir le prénom : ");
+        nom = readString("Saisir le nom : ");
+        age = readInt("Saisir l'âge : ");
+        taille = readInt("Saisir la taille : ");
+    }
+
+    void afficherFichePerso() {
+        print("Je suis " + prenom + " " + nom + " et j'ai " + age + " ans");
+    }
+
+    void anniversaire() {
+        age++;
+    }
+}
+
+Personne plusGrand(Personne p1, Personne p2) {
+    if (p1.taille > p2.taille) {
+        return p1;
+    } else {
+        return p2;
+    }
+}
+
+boolean estPlusJeune(Personne p1, Personne p2) {
+    return p1.age < p2.age;
+}
+
+float agesPersonnes(Personne[] tab) {
+    float somme = 0;
+    for (int i = 0; i < tab.length; i++) {
+        somme += tab[i].age;
+    }
+    return somme / tab.length;
+}
+
+Personne trouvePersonne(Personne[] tab, String nom) {
+    for (int i = 0; i < tab.length; i++) {
+        if (tab[i].nom.equals(nom)) {
+            return tab[i];
+        }
+    }
+    return null;
+}

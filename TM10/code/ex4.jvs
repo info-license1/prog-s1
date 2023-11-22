@@ -1,0 +1,17 @@
+void main() {}
+
+class Article {
+    String nom;
+    double prix;
+
+    void afficherArticle() {
+        print("L’article " + nom + " coûte " + prix + " euros.");
+    }
+}
+
+Article saisirArticle(String nom, float prix) {
+    Article article = new Article();
+    article.nom = nom;
+    article.prix = prix;
+    return article;
+}

@@ -1,0 +1,101 @@
+int MAX = 100;
+
+void main() {
+    Panier panier = initialiserPanier();
+    int nombreArticles = readInt("Combien d’articles voulez-vous ajouter ? ");
+
+    while (nombreArticles < 0 || nombreArticles > MAX) {
+        println("Le nombre d’articles doit être compris entre 0 et " + MAX + ".");
+        nombreArticles = readInt("Combien d’articles voulez-vous ajouter ? ");
+    }
+
+    for (int i = 0; i < nombreArticles; i++) {
+        String nom = readString("Nom de l’article " + (i + 1) + " : ");
+        float prix = readFloat("Prix de l’article " + (i + 1) + " : ");
+        Article article = saisirArticle(nom, prix);
+        ajouterArticle(panier, article);
+    }
+
+    panier.afficherPanier();
+
+    if (panierPlein(panier)) {
+        println("Votre panier est plein.");
+    } else {
+        println("Il reste " + (MAX - panier.nbArticles) + " places dans votre panier.");
+        int choix = readInt("Voulez-vous ajouter un article ? (1 : oui, 2 : non) ");
+
+        while (choix != 1 && choix != 2) {
+            println("Vous devez saisir 1 ou 2.");
+            choix = readInt("Voulez-vous ajouter un article ? (1 : oui, 2 : non) ");
+        }
+
+        if (choix == 1) {
+            String nom = readString("Nom de l’article : ");
+            float prix = readFloat("Prix de l’article : ");
+            Article article = saisirArticle(nom, prix);
+            ajouterArticle(panier, article);
+            panier.afficherPanier();
+        } else {
+            println("Vous avez choisi de ne pas ajouter d’article.");
+        }
+    }
+}
+
+class Article {
+    String nom;
+    double prix;
+
+    void afficherArticle() {
+        print("L’article " + nom + " coûte " + prix + " euros.");
+    }
+}
+
+class Panier {
+    Article[] article;
+    int nbArticles;
+
+    void afficherPanier() {
+        println("Votre panier contient " + nbArticles + " article(s) :");
+        for (int i = 0; i < nbArticles; i++) {
+            print("   ");
+            article[i].afficherArticle();
+            println("");
+        }
+    }
+}
+
+Article saisirArticle(String nom, float prix) {
+    Article article = new Article();
+    article.nom = nom;
+    article.prix = prix;
+    return article;
+}
+
+Panier initialiserPanier() {
+    Panier panier = new Panier();
+    panier.article = new Article[MAX];
+    panier.nbArticles = 0;
+
+    return panier;
+}
+
+float prixTotal(Panier panier) {
+    float prixTotal = 0;
+    for (int i = 0; i < panier.nbArticles; i++) {
+        prixTotal += panier.article[i].prix;
+    }
+    return prixTotal;
+}
+
+boolean panierPlein(Panier panier) {
+    return panier.nbArticles == MAX;
+}
+
+boolean ajouterArticle(Panier panier, Article article) {
+    if (panierPlein(panier)) {
+        return false;
+    }
+    panier.article[panier.nbArticles] = article;
+    panier.nbArticles++;
+    return true;
+}

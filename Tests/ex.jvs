@@ -1,0 +1,7 @@
+void main() {
+    retourne1();
+}
+
+void retourne1() {
+    return;
+}
