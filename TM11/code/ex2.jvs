@@ -1,0 +1,69 @@
+void main() {}
+
+class Individu {
+    String prenom;
+    String nom;
+
+    Individu pere;
+    Individu mere;
+}
+
+Individu[] parents(Individu individu) {
+    Individu[] parents = new Individu[2];
+
+    parents[0] = individu.pere;
+    parents[1] = individu.mere;
+
+    return parents;
+}
+
+Individu[] grandParents(Individu individu) {
+    Individu[] parents = parents(individu);
+    Individu[] grandParents = new Individu[4];
+
+    if (parents[0] != null) {
+        grandParents[0] = parents[0].pere;
+        grandParents[1] = parents[0].mere;
+    } else {
+        grandParents[0] = null;
+        grandParents[1] = null;
+    }
+
+    if (parents[1] != null) {
+        grandParents[2] = parents[1].pere;
+        grandParents[3] = parents[1].mere;
+    } else {
+        grandParents[2] = null;
+        grandParents[3] = null;
+    }
+
+    return grandParents;
+}
+
+Individu[] mereDeMere4(Individu individu) {
+    Individu[] mereDeMere4 = new Individu[4];
+    mereDeMere4[0] = individu.mere;
+
+    if (individu.mere != null) {
+        mereDeMere4[1] = individu.mere.mere;
+
+        if (individu.mere.mere != null) {
+            mereDeMere4[2] = individu.mere.mere.mere;
+
+            if (individu.mere.mere.mere != null) {
+                mereDeMere4[3] = individu.mere.mere.mere.mere;
+            } else {
+                mereDeMere4[3] = null;
+            }
+        } else {
+            mereDeMere4[2] = null;
+            mereDeMere4[3] = null;
+        }
+    } else {
+        mereDeMere4[1] = null;
+        mereDeMere4[2] = null;
+        mereDeMere4[3] = null;
+    }
+
+    return mereDeMere4;
+}

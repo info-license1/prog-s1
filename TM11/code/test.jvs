@@ -1,0 +1,19 @@
+class Magasins {
+    String nom;
+    Ville[] listeville;
+}
+
+class Ville {
+    String nom;
+    int superficie;
+}
+
+void main() {
+    Magasins mag = new Magasins();
+    mag.nom = "Casino";
+    Ville v = new Ville();
+    v.nom = "Lens";
+    v.superficie = 2500;
+    mag.listeville = new Ville[1];
+    mag.listeville[0] = v; // instruction ()
+}

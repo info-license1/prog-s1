@@ -1,4 +1,7 @@
-void main() {}
+void main() {
+    Individu[] familleSimpson = creerFamilleSimpson();
+    afficherFamille(familleSimpson);
+}
 
 class Individu {
     String prenom;
@@ -48,6 +51,8 @@ Individu[] creerFamilleSimpson() {
 }
 
 void afficherFamille(Individu[] famille) {
+    println("Affichage de la famille :");
+
     for (Individu individu : famille) {
         individu.afficherIndividu();
     }

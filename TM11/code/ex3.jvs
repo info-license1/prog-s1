@@ -1,0 +1,24 @@
+void main() {}
+
+class Individu {
+    String prenom;
+    String nom;
+
+    Individu pere;
+    Individu mere;
+
+    void afficherIndividu() {
+        println("Je m'appelle " + prenom + " " + nom);
+        println("Mon père est " + pere.prenom + " " + pere.nom);
+        println("Ma mère est " + mere.prenom + " " + mere.nom);
+        println();
+    }
+}
+
+void afficherFamille(Individu[] famille) {
+    println("Affichage de la famille :");
+
+    for (Individu individu : famille) {
+        individu.afficherIndividu();
+    }
+}
